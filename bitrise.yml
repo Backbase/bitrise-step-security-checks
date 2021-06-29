@@ -1,0 +1,51 @@
+format_version: 4
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+app:
+  envs:
+  - ARTIFACTORY_URL: $ARTIFACTORY_URL
+  - BD_HUB_TOKEN: $BD_HUB_TOKEN
+  - VERACODE_ID: $VERACODE_ID
+  - VERACODE_KEY: $VERACODE_KEY
+  - ARTIFACTORY_USERNAME: $ARTIFACTORY_USERNAME
+  - ARTIFACTORY_PASSWORD: $ARTIFACTORY_PASSWORD
+  # If you want to share this step into a StepLib
+  - BITRISE_STEP_ID: backbase-security
+  - BITRISE_STEP_VERSION: "0.0.1"
+  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/fnxpt/bitrise-step-backbase-security.git
+  - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
+
+workflows:
+  test:
+    steps:
+    - change-workdir:
+        title: Switch working dir to test / _tmp dir
+        description: |-
+          To prevent step testing issues, like referencing relative
+          files with just './some-file' in the step's code, which would
+          work for testing the step from this directory directly
+          but would break if the step is included in another `bitrise.yml`.
+        run_if: true
+        inputs:
+        - path: ./_tmp
+        - is_create_path: true
+    - path::./:
+        title: Step Test
+        run_if: true
+        inputs:
+        - project_type: ios
+        - project_name: test
+        - project_version: 0.0.0
+        - deliverable_path: "test.xcarchive"
+
+
+  # ----------------------------------------------------------------
+  # --- workflows to Share this step into a Step Library
+  audit-this-step:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -ex
+            stepman audit --step-yml ./step.yml
