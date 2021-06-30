@@ -3,12 +3,6 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 
 app:
   envs:
-  - ARTIFACTORY_URL: $ARTIFACTORY_URL
-  - BD_HUB_TOKEN: $BD_HUB_TOKEN
-  - VERACODE_ID: $VERACODE_ID
-  - VERACODE_KEY: $VERACODE_KEY
-  - ARTIFACTORY_USERNAME: $ARTIFACTORY_USERNAME
-  - ARTIFACTORY_PASSWORD: $ARTIFACTORY_PASSWORD
   
 workflows:
   test:
