@@ -28,7 +28,6 @@ inputs:
       title: Artifactory Endpoint
       description: Endpoint for artifactory where security script is hosted (eg. http://example.com)
       is_required: true
-      is_sensitive: true
 - artifactory_user:
     opts:
       title: Artifactory User
