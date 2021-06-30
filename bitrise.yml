@@ -9,12 +9,7 @@ app:
   - VERACODE_KEY: $VERACODE_KEY
   - ARTIFACTORY_USERNAME: $ARTIFACTORY_USERNAME
   - ARTIFACTORY_PASSWORD: $ARTIFACTORY_PASSWORD
-  # If you want to share this step into a StepLib
-  - BITRISE_STEP_ID: backbase-security
-  - BITRISE_STEP_VERSION: "0.0.1"
-  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/fnxpt/bitrise-step-backbase-security.git
-  - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
-
+  
 workflows:
   test:
     steps:
