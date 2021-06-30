@@ -48,7 +48,7 @@ inputs:
     is_required: true
 - signing_path: null
   opts:
-    title: "Path to deliverable to sign"
+    title: "Paths to deliverables to sign"
     description: |-
       Path to deliverable to sign, default value is deliverable_path
     is_required: false
