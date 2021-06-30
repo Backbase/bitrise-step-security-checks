@@ -9,6 +9,9 @@ if [ -z $ARTIFACTORY_USERNAME ] || [ -z $ARTIFACTORY_PASSWORD ]; then
   exit 1
 fi
 
+if [ -z $signing_path]; then
+  options="$options --signArtifacts $signing_path"
+fi
 
 if [[ $project_type == 'android' ]]; then
   if [ -z $gradle_project]; then
@@ -24,5 +27,4 @@ bash <(curl -u $ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD -s -L $url) \
 --projectName $project_name \
 --version $project_version \
 --scanArtifacts $deliverable_path \
---signArtifacts $deliverable_path \
 $options 

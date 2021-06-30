@@ -9,7 +9,7 @@ source_code_url: https://github.com/Backbase/bitrise-step-security-checks
 support_url: https://github.com/Backbase/bitrise-step-security-checks
 host_os_tags:
   - osx-10.10
-  - ubuntu-16.04
+  - ubuntu-20.04
 project_type_tags:
   - ios
   - android
@@ -33,6 +33,8 @@ inputs:
 - project_name: null
   opts:
     title: "Your project name"
+    description: |-
+      Name of the project for security (same as your blackduck project name)
     is_required: true
 - project_version: null
   opts:
@@ -42,8 +44,14 @@ inputs:
   opts:
     title: "Path to deliverable"
     description: |-
-      Path to deliverable, apk for android, xcarchive for iOS
+      Path to deliverable, apk/aar for android, xcarchive for iOS
     is_required: true
+- signing_path: null
+  opts:
+    title: "Path to deliverable to sign"
+    description: |-
+      Path to deliverable to sign, default value is deliverable_path
+    is_required: false
 - gradle_project: null
   opts:
     title: "Gradle Project"
