@@ -44,7 +44,7 @@ inputs:
   opts:
     title: "Path to deliverable"
     description: |-
-      Path to deliverable, apk/aar for android, xcarchive for iOS
+      Comma-delimited paths to deliverables: APK/AARs for android, xcarchive for iOS
     is_required: true
 - signing_path: null
   opts:
