@@ -50,7 +50,7 @@ inputs:
   opts:
     title: "Paths to deliverables to sign"
     description: |-
-      Path to deliverable to sign, default value is deliverable_path
+      Comma-delimited paths to deliverables to sign, default value is deliverable_path
     is_required: false
 - gradle_project: null
   opts:
