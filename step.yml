@@ -42,7 +42,7 @@ inputs:
     is_required: false
 - deliverable_path: null
   opts:
-    title: "Path to deliverable"
+    title: "Paths to deliverables"
     description: |-
       Comma-delimited paths to deliverables: APK/AARs for android, xcarchive for iOS
     is_required: true
