@@ -23,6 +23,38 @@ toolkit:
   bash:
     entry_file: step.sh
 inputs:
+- artifactory_url:
+    opts:
+      title: Artifactory Endpoint
+      description: Endpoint for artifactory where security script is hosted (eg. http://example.com)
+      is_required: true
+- artifactory_user:
+    opts:
+      title: Artifactory User
+      is_required: true
+      is_sensitive: true
+- artifactory_password:
+    opts:
+      title: Artifactory password
+      is_required: true
+      is_sensitive: true
+- blackduck_token:
+    opts:
+      title: Blackduck API Token
+      is_required: true
+      is_sensitive: true
+- veracode_id:
+    opts:
+      title: Veracode API ID
+      is_required: true
+      is_sensitive: true
+- veracode_key:
+    opts:
+      title: Veracode API Key
+      summary: The password for the bitbucket server username
+      description: The password for the bitbucket server username
+      is_required: true
+      is_sensitive: true
 - project_type: null
   opts:
     title: Project Type

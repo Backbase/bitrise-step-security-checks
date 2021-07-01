@@ -1,13 +1,17 @@
 #!/bin/bash
 
-url=$ARTIFACTORY_URL/security-tools/latest/security-scan.sh
+url=$artifactory_url/security-tools/latest/security-scan.sh
 
 options=''
 
-if [ -z $ARTIFACTORY_USERNAME ] || [ -z $ARTIFACTORY_PASSWORD ]; then
+if [ -z $artifactory_user ] || [ -z $artifactory_password ]; then
   echo "Missing artifactory credentials"
   exit 1
 fi
+
+envman add --key BD_HUB_TOKEN --value $blackduck_token
+envman add --key VERACODE_ID --value $veracode_id
+envman add --key VERACODE_KEY --value $veracode_key
 
 if [ -z $signing_path]; then
   options="$options --signArtifacts $signing_path"
