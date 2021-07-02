@@ -9,9 +9,9 @@ if [[ -z "$artifactory_user" ]] || [[ -z "$artifactory_password" ]]; then
   exit 1
 fi
 
-envman add --key BD_HUB_TOKEN --value $blackduck_token
-envman add --key VERACODE_ID --value $veracode_id
-envman add --key VERACODE_KEY --value $veracode_key
+export BD_HUB_TOKEN=$blackduck_token
+export VERACODE_ID=$veracode_id
+export VERACODE_KEY=$veracode_key
 
 if [[ ! -z "$signing_path" ]]; then
   options="$options --signArtifacts $signing_path"
