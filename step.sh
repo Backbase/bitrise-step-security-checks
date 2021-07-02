@@ -15,6 +15,8 @@ envman add --key BD_HUB_TOKEN --value $blackduck_token
 envman add --key VERACODE_ID --value $veracode_id
 envman add --key VERACODE_KEY --value $veracode_key
 
+export BD_HUB_TOKEN=$blackduck_token
+
 if [[ ! -z "$signing_path" ]]; then
   options="$options --signArtifacts $signing_path"
 fi
