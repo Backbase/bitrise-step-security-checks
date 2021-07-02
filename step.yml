@@ -71,6 +71,8 @@ inputs:
 - project_version: null
   opts:
     title: "Your project version"
+    description: |-
+      Version of the project being released. Use "latest" if this is a CI (non-release) pipeline.
     is_required: false
 - deliverable_path: null
   opts:
