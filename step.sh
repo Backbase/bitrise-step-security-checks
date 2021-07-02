@@ -29,6 +29,7 @@ if [[ $project_type == 'android' ]]; then
 fi
 
 curl -u $ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD -s -L -O $url
+chmod +x security-scan.sh
 
 ./security-scan.sh \
 --projectType $project_type \
