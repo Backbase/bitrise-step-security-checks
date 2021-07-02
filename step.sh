@@ -30,6 +30,7 @@ fi
 
 curl -u $ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD -s -L -O $url
 chmod +x security-scan.sh
+cat security-scan.sh
 
 ./security-scan.sh \
 --projectType $project_type \
