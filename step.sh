@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 url=$artifactory_url/security-tools/latest/security-scan.sh
 
 options=''
