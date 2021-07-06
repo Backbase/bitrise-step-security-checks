@@ -1,6 +1,8 @@
 #!/bin/bash
 
-url=$artifactory_url/security-tools/latest/security-scan.sh
+set -e
+
+url=$artifactory_url/security-tools/pipeline/0.0.1/security-scan.sh
 
 options=''
 
@@ -26,7 +28,10 @@ if [[ $project_type == 'android' ]]; then
   fi
 fi
 
-bash <(curl -u $artifactory_user:$artifactory_password -s -L $url) \
+curl -u $artifactory_user:$artifactory_password -s -L -O $url
+chmod +x security-scan.sh
+
+./security-scan.sh \
 --projectType $project_type \
 --projectName $project_name \
 --version $project_version \
