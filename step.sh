@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -evx
+set -e
 
 url=$artifactory_url/security-tools/latest/security-scan.sh
 
