@@ -32,6 +32,7 @@ curl -u $artifactory_user:$artifactory_password -s -L -O $url
 chmod +x security-scan.sh
 
 ./security-scan.sh \
+--fail \
 --projectType $project_type \
 --projectName $project_name \
 --version $project_version \
