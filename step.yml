@@ -43,18 +43,6 @@ inputs:
     title: Blackduck API Token
     is_required: true
     is_sensitive: true
-- veracode_id:
-  opts:
-    title: Veracode API ID
-    is_required: true
-    is_sensitive: true
-- veracode_key:
-  opts:
-    title: Veracode API Key
-    summary: The password for the bitbucket server username
-    description: The password for the bitbucket server username
-    is_required: true
-    is_sensitive: true
 - project_type: null
   opts:
     title: Project Type
@@ -97,4 +85,16 @@ inputs:
     title: "Gradle configuration"
     description: |-
       Force results against a specific gradle configuration
+    is_required: false
+- source_path:
+  opts:
+    title: Source path
+    description: |-
+     Root path where the scanned artifact is built (e.g. directory where the pom.xml aggregating final artifact dependencies lives in). Default: '.'.
+    is_required: false
+- search_depth:
+  opts:
+    title: Search depth
+    description: |-
+      Search depth where detector will look for package manager files from 'sourcePath' location. Default: 0.
     is_required: false

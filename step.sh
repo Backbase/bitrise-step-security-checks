@@ -2,7 +2,7 @@
 
 set -e
 
-url=$artifactory_url/security-tools/pipeline/0.0.1/security-scan.sh
+url=$artifactory_url/security-tools/pipeline/0.0.2/securityScan.sh
 
 options=''
 
@@ -12,8 +12,6 @@ if [[ -z "$artifactory_user" ]] || [[ -z "$artifactory_password" ]]; then
 fi
 
 export BD_HUB_TOKEN=$blackduck_token
-export VERACODE_ID=$veracode_id
-export VERACODE_KEY=$veracode_key
 
 if [[ ! -z "$signing_path" ]]; then
   options="$options --signArtifacts $signing_path"
@@ -27,6 +25,14 @@ if [[ $project_type == 'android' ]]; then
     options="$options --detectGradleConfiguration $gradle_configuration"
   fi
 fi
+
+ if [[ ! -z "$search_depth" ]]; then
+    options="$options --detectSearchDepth $search_depth"
+  fi
+  if [[ ! -z "$source_path" ]]; then
+    options="$options --sourcePath $source_path"
+  fi
+
 
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
 chmod +x security-scan.sh
