@@ -35,4 +35,5 @@ chmod +x security-scan.sh
 --projectName $project_name \
 --version $project_version \
 --scanArtifacts $deliverable_path \
+--detectSearchDepth 3 \
 $options 
