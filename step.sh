@@ -26,6 +26,14 @@ if [[ $project_type == 'android' ]]; then
   fi
 fi
 
+ if [[ ! -z "$search_depth" ]]; then
+    options="$options --detectSearchDepth $search_depth"
+  fi
+  if [[ ! -z "$source_path" ]]; then
+    options="$options --sourcePath $source_path"
+  fi
+
+
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
 chmod +x security-scan.sh
 
@@ -35,5 +43,4 @@ chmod +x security-scan.sh
 --projectName $project_name \
 --version $project_version \
 --scanArtifacts $deliverable_path \
---detectSearchDepth 3 \
 $options 
