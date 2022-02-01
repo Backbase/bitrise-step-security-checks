@@ -2,7 +2,7 @@
 
 set -e
 
-url=$artifactory_url/security-tools/pipeline/0.0.1/security-scan.sh
+url=$artifactory_url/security-tools/pipeline/0.0.2/securityScan.sh
 
 options=''
 
@@ -12,8 +12,6 @@ if [[ -z "$artifactory_user" ]] || [[ -z "$artifactory_password" ]]; then
 fi
 
 export BD_HUB_TOKEN=$blackduck_token
-export VERACODE_ID=$veracode_id
-export VERACODE_KEY=$veracode_key
 
 if [[ ! -z "$signing_path" ]]; then
   options="$options --signArtifacts $signing_path"
