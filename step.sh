@@ -35,9 +35,9 @@ fi
 
 
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
-chmod +x security-scan.sh
+chmod +x securityScan.sh
 
-./security-scan.sh \
+./securityScan.sh \
 --fail \
 --projectType $project_type \
 --projectName $project_name \
