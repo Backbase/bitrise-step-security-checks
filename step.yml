@@ -98,7 +98,7 @@ inputs:
     description: |-
       Search depth where detector will look for package manager files from 'sourcePath' location. Default: 0.
     is_required: false
-- sonarProperties:
+- sonar_properties:
   opts:
     title: Sonar properties
     description: |-

@@ -32,8 +32,8 @@ fi
 if [[ ! -z "$source_path" ]]; then
   options="$options --sourcePath $source_path"
 fi
-if [[ ! -z "$sonarProperties" ]]; then
-  options="$options --sonarProperties $sonarProperties"
+if [[ ! -z "$sonar_properties" ]]; then
+  options="$options --sonarProperties $sonar_properties"
 fi
 
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
