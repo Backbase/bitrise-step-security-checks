@@ -98,3 +98,9 @@ inputs:
     description: |-
       Search depth where detector will look for package manager files from 'sourcePath' location. Default: 0.
     is_required: false
+- sonarProperties:
+  opts:
+    title: Sonar properties
+    description: |-
+      Path for sonar properties file (sonar-project.properties or sonar.gradle) Default: sonar-project.properties
+    is_required: false

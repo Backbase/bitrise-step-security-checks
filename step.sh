@@ -26,21 +26,23 @@ if [[ $project_type == 'android' ]]; then
   fi
 fi
 
- if [[ ! -z "$search_depth" ]]; then
-    options="$options --detectSearchDepth $search_depth"
-  fi
-  if [[ ! -z "$source_path" ]]; then
-    options="$options --sourcePath $source_path"
-  fi
-
+if [[ ! -z "$search_depth" ]]; then
+  options="$options --detectSearchDepth $search_depth"
+fi
+if [[ ! -z "$source_path" ]]; then
+  options="$options --sourcePath $source_path"
+fi
+if [[ ! -z "$sonarProperties" ]]; then
+  options="$options --sonarProperties $sonarProperties"
+fi
 
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
 chmod +x securityScan.sh
 
 ./securityScan.sh \
---fail \
---projectType $project_type \
---projectName $project_name \
---version $project_version \
---scanArtifacts $deliverable_path \
-$options 
+  --fail \
+  --projectType $project_type \
+  --projectName $project_name \
+  --version $project_version \
+  --scanArtifacts $deliverable_path \
+  $options
