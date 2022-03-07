@@ -2,7 +2,7 @@
 
 set -e
 
-url=$artifactory_url/security-tools/pipeline/0.0.2/securityScan.sh
+url=$artifactory_url/security-tools/pipeline/0.0.3/securityScan.sh
 
 options=''
 
@@ -26,21 +26,23 @@ if [[ $project_type == 'android' ]]; then
   fi
 fi
 
- if [[ ! -z "$search_depth" ]]; then
-    options="$options --detectSearchDepth $search_depth"
-  fi
-  if [[ ! -z "$source_path" ]]; then
-    options="$options --sourcePath $source_path"
-  fi
-
+if [[ ! -z "$search_depth" ]]; then
+  options="$options --detectSearchDepth $search_depth"
+fi
+if [[ ! -z "$source_path" ]]; then
+  options="$options --sourcePath $source_path"
+fi
+if [[ ! -z "$sonar_properties" ]]; then
+  options="$options --sonarProperties $sonar_properties"
+fi
 
 curl -u $artifactory_user:$artifactory_password -s -L -O $url
 chmod +x securityScan.sh
 
 ./securityScan.sh \
---fail \
---projectType $project_type \
---projectName $project_name \
---version $project_version \
---scanArtifacts $deliverable_path \
-$options 
+  --fail \
+  --projectType $project_type \
+  --projectName $project_name \
+  --version $project_version \
+  --scanArtifacts $deliverable_path \
+  $options
