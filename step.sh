@@ -2,7 +2,7 @@
 
 set -e
 
-url=$artifactory_url/security-tools/pipeline/0.0.2/securityScan.sh
+url=$artifactory_url/security-tools/pipeline/0.0.3/securityScan.sh
 
 options=''
 
