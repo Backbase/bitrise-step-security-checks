@@ -76,9 +76,9 @@ inputs:
     is_required: false
 - gradle_project: null
   opts:
-    title: "Gradle Project"
+    title: "Gradle Projects"
     description: |-
-      Force results against a specific gradle project
+      A comma-separated list of gradle projects to generate scan results for.
     is_required: false
 - gradle_configuration: null
   opts:
